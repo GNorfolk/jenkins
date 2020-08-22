@@ -55,7 +55,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        dir("${workspace}/terraform/deploys/${environment}-data") {
+        dir("${workspace}/terraform/deploys/${environment}") {
           withEnv(["AWS_ACCESS_KEY_ID=${credsObj.Credentials.AccessKeyId}", "AWS_SECRET_ACCESS_KEY=${credsObj.Credentials.SecretAccessKey}", "AWS_SESSION_TOKEN=${credsObj.Credentials.SessionToken}"]) {
             echo "Initialising Terraform"
             sh("terraform init -input=false -no-color")
