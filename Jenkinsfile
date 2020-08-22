@@ -45,7 +45,7 @@ pipeline {
           if(params.rebuildami) {
             echo "Provisioning AMI"
             withEnv(["AWS_ACCESS_KEY_ID=${credsObj.Credentials.AccessKeyId}", "AWS_SECRET_ACCESS_KEY=${credsObj.Credentials.SecretAccessKey}", "AWS_SESSION_TOKEN=${credsObj.Credentials.SessionToken}"]) {
-              sh("packer build -color=false ${workspace}/packer/${environment}.json")
+              sh("packer build -color=false ${workspace}/packer.json")
             }
           } else {
             echo "Skipping AMI Rebuild"
