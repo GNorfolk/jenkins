@@ -52,7 +52,8 @@ resource "aws_security_group" "packer" {
   }
 }
 
-resource "aws_instance" "web" {
+resource "aws_instance" "jenkins" {
   ami           = "ami-07d9160fa81ccffb5"
   instance_type = "t3.micro"
+  subnet_id     = aws_subnet.main.id
 }
