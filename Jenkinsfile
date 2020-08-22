@@ -59,9 +59,9 @@ pipeline {
           withEnv(["AWS_ACCESS_KEY_ID=${credsObj.Credentials.AccessKeyId}", "AWS_SECRET_ACCESS_KEY=${credsObj.Credentials.SecretAccessKey}", "AWS_SESSION_TOKEN=${credsObj.Credentials.SessionToken}"]) {
             echo "Initialising Terraform"
             sh("terraform init -input=false -no-color")
-            sh("terraform plan -out=plan.out -no-color -var environment=${environment}")
+            sh("terraform plan -out plan.out -no-color -var 'environment=${environment}'")
             echo "Deploying Terraform"
-            sh("terraform apply plan.out -auto-approve -no-color ")
+            sh("terraform apply \"plan.out\" -no-color")
           }
         }
       }
