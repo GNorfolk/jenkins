@@ -1,5 +1,5 @@
 resource "aws_vpc" "main" {
-  cidr_block = var.cidr
+  cidr_block = "10.0.0.0/16"
   tags = {
     Name = "jenkins"
   }
@@ -7,7 +7,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "main" {
   vpc_id = aws_vpc.main.id
-  cidr_block = cidrsubnet(var.cidr, 4, each.value)
+  cidr_block = cidrsubnet(aws_vpc.main.cidr_block, 0, 0)
   map_public_ip_on_launch = true
   availability_zone = "eu-west-1a"
   tags = {
