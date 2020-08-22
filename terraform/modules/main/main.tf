@@ -11,7 +11,7 @@ resource "aws_subnet" "main" {
   map_public_ip_on_launch = true
   availability_zone = "eu-west-1a")
   tags = {
-    Name = "main")
+    Name = "main"
   }
 }
 
