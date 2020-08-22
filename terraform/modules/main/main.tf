@@ -9,7 +9,7 @@ resource "aws_subnet" "main" {
   vpc_id = aws_vpc.main.id
   cidr_block = cidrsubnet(var.cidr, 4, each.value)
   map_public_ip_on_launch = true
-  availability_zone = "eu-west-1a")
+  availability_zone = "eu-west-1a"
   tags = {
     Name = "main"
   }
@@ -53,6 +53,6 @@ resource "aws_security_group" "packer" {
 }
 
 resource "aws_instance" "web" {
-  ami           = ""
+  ami           = "ami-07d9160fa81ccffb5"
   instance_type = "t3.micro"
 }
