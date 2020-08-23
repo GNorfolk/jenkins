@@ -12,12 +12,12 @@
       "region": "eu-west-1",
       "vpc_filter": {
         "filters": {
-          "tag:Name": "main"
+          "tag:Name": "jenkins"
         }
       },
       "subnet_filter": {
         "filters": {
-          "tag:Name": "jenkins"
+          "tag:Name": "main"
         },
         "random": true
       },
