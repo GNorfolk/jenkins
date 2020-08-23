@@ -43,6 +43,7 @@ resource "aws_instance" "jenkins" {
   instance_type = "t3.micro"
   subnet_id     = aws_subnet.main.id
   iam_instance_profile = aws_iam_role.jenkins.name
+  user_data     = "<script>systemctl start jenkins</script>"
   tags = {
     Name = "jenkins"
   }
