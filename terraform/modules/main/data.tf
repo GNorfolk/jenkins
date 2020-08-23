@@ -1,7 +1,8 @@
 data "aws_ami" "jenkins" {
   most_recent = true
+  owners = [103348857345]
   filter {
-    name   = "name"
+    name = "tag:Name"
     values = ["jenkins*"]
   }
 }
