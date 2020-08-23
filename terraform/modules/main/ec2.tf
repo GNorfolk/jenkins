@@ -22,4 +22,5 @@ resource "aws_instance" "jenkins" {
   ami           = "ami-07d9160fa81ccffb5"
   instance_type = "t3.micro"
   subnet_id     = aws_subnet.main.id
+  iam_instance_profile = aws_iam_role.jenkins.name
 }

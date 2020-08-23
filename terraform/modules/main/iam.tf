@@ -17,6 +17,11 @@ resource "aws_iam_role" "jenkins" {
 EOF
 }
 
+resource "aws_iam_instance_profile" "profile" {
+  name = aws_iam_role.jenkins.name
+  role = aws_iam_role.jenkins.name
+}
+
 resource "aws_iam_role_policy_attachment" "attach" {
   role       = aws_iam_role.jenkins.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
