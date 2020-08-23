@@ -17,7 +17,7 @@
       },
       "subnet_filter": {
         "filters": {
-          "tag:Name": "main*"
+          "tag:Name": "jenkins"
         },
         "random": true
       },
