@@ -5,3 +5,7 @@ data "aws_ami" "jenkins" {
     values = ["jenkins*"]
   }
 }
+
+data "aws_route53_zone" "main" {
+  name = "norfolkgaming.com"
+}
