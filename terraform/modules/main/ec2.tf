@@ -44,6 +44,7 @@ resource "aws_instance" "jenkins" {
   subnet_id     = aws_subnet.main.id
   iam_instance_profile = aws_iam_role.jenkins.name
   user_data     = "<script>systemctl start jenkins</script>"
+  vpc_security_group_ids = [aws_security_group.jenkins.id]
   tags = {
     Name = "jenkins"
   }
