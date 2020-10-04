@@ -49,3 +49,9 @@ resource "aws_instance" "jenkins" {
     Name = "jenkins"
   }
 }
+
+resource "aws_eip" "jenkins" {
+  instance = aws_instance.jenkins.id
+  vpc      = true
+}
+
