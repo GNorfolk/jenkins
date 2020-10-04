@@ -3,5 +3,5 @@ resource "aws_route53_record" "main" {
   name    = "jenkins.norfolkgaming.com"
   type    = "A"
   ttl     = "300"
-  records = [aws_instance.jenkins.public_ip]
+  records = [aws_eip.jenkins.public_ip]
 }
